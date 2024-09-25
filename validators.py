@@ -32,7 +32,7 @@ def discord_username_validator(name: str) -> str | None:
     if not DISCORD_USERNAME_ALLOWED_CHARACTERS.issuperset(name):
         raise ValidationError(
             _("Discord username can only contain `%(characters)s`"),
-            params={"characters": "".join(DISCORD_USERNAME_ALLOWED_CHARACTERS)},
+            params={"characters": "".join(sorted(DISCORD_USERNAME_ALLOWED_CHARACTERS))},
             code="invalid",
         )
 
