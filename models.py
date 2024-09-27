@@ -15,3 +15,9 @@ class Attendant(models.Model):
         validators=[discord_username_validator],
     )
     is_crew = models.BooleanField(default=False)
+    _is_valid = models.BooleanField(name="is_valid", default=True)
+
+    @property
+    def is_valid(self):
+        # TODO: Validate daily ticket here
+        return self._is_valid
