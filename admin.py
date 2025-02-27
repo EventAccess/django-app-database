@@ -1,7 +1,14 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Attendant
 from .models import Crewmember
+
+
+class AttendantAdmin(admin.ModelAdmin):
+    list_display = ["ticket_id", "nfc_id", "is_crew", "is_valid"]
+
+
+admin.site.register(Attendant, AttendantAdmin)
 
 
 class CrewmemberAdmin(admin.ModelAdmin):
